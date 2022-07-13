@@ -31,9 +31,10 @@
             - ex: calculator, firefox, etc
     - new innovations led by red hat, and debuting in Fedora
         - fwupd
-        - pipewire and wireplumber
-        - flatpak
         - wayland & latest gnomes
+        - libinput
+        - flatpak
+        - pipewire and wireplumber
     - codecs, drivers, & font rendering become less of issues
         - openh264, polishing of rpmfusion, flatpaks
         - nvidia drivers getting better under fedora (now plus open source!)
@@ -52,4 +53,3 @@
     - meanwhile, ubuntu has made almost no contributions to the modern linux desktop stack besides
     some optimizations to gnome
         - instead they are using their captive users to dogfood stuff like snaps
-
