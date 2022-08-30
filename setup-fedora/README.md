@@ -1,5 +1,4 @@
-source video: 
-
+source video: https://youtu.be/Bcb3gIjyKg0
 
 - 1: setup rpmfusion, update distro & firmware, install codecs
     - do inital setup, select additional repos if want
@@ -9,6 +8,7 @@ source video:
         - sudo dnf in *.rpm
     - update distro & install codecs
         - sudo dnf up && sudo dnf groupinstall "Fedora Workstation"
+        - video on the groupinstall command: https://youtu.be/TelA7_zzY_M
     - update firmware
         - sudo fwupdmgr update
     - reboot!
