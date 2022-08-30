@@ -1,3 +1,5 @@
+source video: https://youtu.be/Rrmv7ll_sm0
+
 - before we start:
     - talk to your coworkers, they know the company and their benefits better than me
     - get in a habit on reading up on:

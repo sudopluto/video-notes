@@ -1,3 +1,5 @@
+source video: https://youtu.be/WP1-cpdXSiI
+
 - so what has opensuse been doing in the past 8+ years
 
 - opensuse has technological advantages, unlike ubuntu

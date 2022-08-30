@@ -1,3 +1,6 @@
+source video: 
+
+
 - 1: setup rpmfusion, update distro & firmware, install codecs
     - do inital setup, select additional repos if want
     - install rpmfusion: https://rpmfusion.org/Configuration
@@ -11,21 +14,24 @@
     - reboot!
 
 - 2: install drivers (nvidia only folks)
-    - https://rpmfusion.org/Howto/NVIDIA
-    - sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-cuda-libs\
-        xorg-x11-drv-nvidia-power vdpauinfo libva-vdpau-driver libva-utils
-    - sudo grubby --update-kernel=ALL --args='nvidia.NVreg_PreserveVideoMemoryAllocations=1'
-    - sudo systemctl enable nvidia-{suspend,resume,hibernate}
+    - nvidia drivers video: https://youtu.be/_SIIMhvLP8Y
+        - https://rpmfusion.org/Howto/NVIDIA
+        - sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-cuda-libs\
+            xorg-x11-drv-nvidia-power vdpauinfo libva-vdpau-driver libva-utils
+        - sudo grubby --update-kernel=ALL --args='nvidia.NVreg_PreserveVideoMemoryAllocations=1'
+        - sudo systemctl enable nvidia-{suspend,resume,hibernate}
     - optional, displaylink driver: https://github.com/displaylink-rpm/displaylink-rpm/releases
-    - optional, nvidia firefox hw accel video: https://github.com/elFarto/nvidia-vaapi-driver
+    - optional, nvidia firefox hw accel video: https://youtu.be/dCXck6De4sY
+        - https://github.com/elFarto/nvidia-vaapi-driver
 
 - 3: setup firefox
     - sign in
     - about:config -> media.ffmpeg.vaapi.enabled -> toggle to true
         - then restart browser
+        - video guide: https://youtu.be/dCXck6De4sY
     - set fonts to cantarell
     - set new tab in home to about:newtab
-    - install 1080p netflix and ublock orgin adons (if you haven't already)
+    - install 1080p netflix and ublock orgin addons (if you haven't already)
 
 - 4: setup gnome
     - install steam first, pulls in the libappindicator addon
@@ -97,4 +103,4 @@
     - vulkan guide is pretty straight forwards
 
 - 9: setup disks
-    - everything you could want can be done from gnome terminal now
+    - everything you could want can be done from gnome disks now

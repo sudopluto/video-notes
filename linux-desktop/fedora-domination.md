@@ -1,3 +1,5 @@
+source video: https://youtu.be/jIbh1_5NPeI
+
 - how is fedora workstation dominating the linux desktop?
     - well its 8+ years of refinement:
     - https://blogs.gnome.org/uraeus/2014/04/16/preparing-the-ground-for-the-fedora-workstation/

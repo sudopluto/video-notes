@@ -1,3 +1,5 @@
+source video: https://youtu.be/1RJf2f7NOTU
+
 - you got your internship, congrats!!!
 - you want to invest? good on you for starting early! 
 
