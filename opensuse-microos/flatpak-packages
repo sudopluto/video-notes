@@ -1,0 +1,30 @@
+Discord	com.discordapp.Discord	0.0.19	stable	system
+Minecraft	com.mojang.Minecraft	1.0.1221	stable	system
+OBS Studio	com.obsproject.Studio	28.0.1	stable	system
+Spotify	com.spotify.Client	1.1.84.716.gc5f8b819	stable	system
+Transmission	com.transmissionbt.Transmission	3.00	stable	system
+Fluffychat	im.fluffychat.Fluffychat	1.6.3	stable	system
+SWH	org.freedesktop.LinuxAudio.Plugins.swh	0.4.17	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	21.08.15	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	22.08.1	22.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
+Mesa	org.freedesktop.Platform.GL.default	mesa-22.1.7	22.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		21.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.3.0	system
+GNU Image Manipulation Program	org.gimp.GIMP	2.10.32	stable	system
+GNOME Application Platform version 42	org.gnome.Platform		42	system
+GNOME Software Development Kit version 42	org.gnome.Sdk		42	system
+Yaru-dark Gtk Theme	org.gtk.Gtk3theme.Yaru-dark		3.22	system
+Adwaita theme	org.kde.KStyle.Adwaita		5.15-21.08	system
+Adwaita theme	org.kde.KStyle.Adwaita		6.3	system
+KDE Application Platform	org.kde.Platform		5.15-21.08	system
+KDE Application Platform	org.kde.Platform		6.3	system
+QGnomePlatform	org.kde.PlatformTheme.QGnomePlatform		5.15-21.08	system
+QtSNI	org.kde.PlatformTheme.QtSNI		5.15-21.08	system
+KDE Software Development Kit	org.kde.Sdk		5.15-21.08	system
+QGnomePlatform-decoration	org.kde.WaylandDecoration.QGnomePlatform-decoration		5.15-21.08	system
+Shotcut	org.shotcut.Shotcut	22.06.23	stable	system
+Signal Desktop	org.signal.Signal	5.58.0	stable	system
+Zoom	us.zoom.Zoom	5.11.10.4400	stable	system
