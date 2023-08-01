@@ -1,0 +1,131 @@
+[pranav@pranav-b550 ~]$ yay -S tpm2-tss 
+Sync Dependency (1): tpm2-tss-4.0.1-1
+[sudo] password for pranav: 
+warning: tpm2-tss-4.0.1-1 is up to date -- reinstalling
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) tpm2-tss-4.0.1-1
+
+Total Installed Size:  3.61 MiB
+Net Upgrade Size:      0.00 MiB
+
+:: Proceed with installation? [Y/n] n
+ -> error installing repo packages
+[pranav@pranav-b550 ~]$ sudo cp /etc/mk
+mke2fs.conf        mkinitcpio.conf    mkinitcpio.conf.d/ mkinitcpio.d/      
+[pranav@pranav-b550 ~]$ sudo cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.old
+[pranav@pranav-b550 ~]$ sudo vim /etc/mkinitcpio.conf
+[pranav@pranav-b550 ~]$ sudo mkinitcpio -P
+[sudo] password for pranav: 
+==> Building image from preset: /etc/mkinitcpio.d/linux-lts.preset: 'default'
+==> Using default configuration file: '/etc/mkinitcpio.conf'
+  -> -k /boot/vmlinuz-linux-lts -g /boot/initramfs-linux-lts.img --microcode /boot/amd-ucode.img
+==> Starting build: '6.1.39-1-lts'
+  -> Running build hook: [systemd]
+  -> Running build hook: [autodetect]
+  -> Running build hook: [modconf]
+  -> Running build hook: [keyboard]
+==> WARNING: Possibly missing firmware for module: 'xhci_pci'
+  -> Running build hook: [sd-vconsole]
+  -> Running build hook: [block]
+  -> Running build hook: [sd-encrypt]
+  -> Running build hook: [filesystems]
+  -> Running build hook: [fsck]
+==> WARNING: Possibly missing '/bin/sh' for script: /usr/bin/fsck.btrfs
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image: '/boot/initramfs-linux-lts.img'
+==> Image generation successful
+==> Building image from preset: /etc/mkinitcpio.d/linux-lts.preset: 'fallback'
+==> Using default configuration file: '/etc/mkinitcpio.conf'
+  -> -k /boot/vmlinuz-linux-lts -g /boot/initramfs-linux-lts-fallback.img -S autodetect --microcode /boot/amd-ucode.img
+==> Starting build: '6.1.39-1-lts'
+  -> Running build hook: [systemd]
+  -> Running build hook: [modconf]
+  -> Running build hook: [keyboard]
+==> WARNING: Possibly missing firmware for module: 'xhci_pci'
+  -> Running build hook: [sd-vconsole]
+  -> Running build hook: [block]
+==> WARNING: Possibly missing firmware for module: 'aic94xx'
+==> WARNING: Possibly missing firmware for module: 'bfa'
+==> WARNING: Possibly missing firmware for module: 'qed'
+==> WARNING: Possibly missing firmware for module: 'qla1280'
+==> WARNING: Possibly missing firmware for module: 'qla2xxx'
+==> WARNING: Possibly missing firmware for module: 'wd719x'
+  -> Running build hook: [sd-encrypt]
+  -> Running build hook: [filesystems]
+  -> Running build hook: [fsck]
+==> WARNING: Possibly missing '/bin/sh' for script: /usr/bin/fsck.btrfs
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image: '/boot/initramfs-linux-lts-fallback.img'
+==> Image generation successful
+[pranav@pranav-b550 ~]$ sudo systemd-cryptenroll --tpm2-device=auto /dev/
+/dev/dm-0       /dev/dm-1       /dev/nvme0n1    /dev/nvme0n1p1  /dev/nvme0n1p2  /dev/sda        /dev/sda1       /dev/zram0      
+[pranav@pranav-b550 ~]$ sudo systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1
+/dev/nvme0n1    /dev/nvme0n1p1  /dev/nvme0n1p2  
+[pranav@pranav-b550 ~]$ sudo systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p2
+🔐 Please enter current passphrase for disk /dev/nvme0n1p2: *****************       
+New TPM2 token enrolled as key slot 2.
+[pranav@pranav-b550 ~]$ lsblk -fs
+NAME                                      FSTYPE      FSVER LABEL   UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+zram0                                                                                                                   [SWAP]
+luksdev                                   btrfs                     e1f1eb69-ea46-45be-9c8f-1860fcc530c7  551.5G    41% /var/log
+│                                                                                                                       /var/cache/pacman/pkg
+│                                                                                                                       /home
+│                                                                                                                       /.snapshots
+│                                                                                                                       /
+└─nvme0n1p2                               crypto_LUKS 2             c6c0a404-3854-4d40-983d-12bbe1191b7f                
+  └─nvme0n1                                                                                                             
+luks-d4f04490-a9af-4106-a1ee-add6509734e1 btrfs             storage c4a11164-21db-423f-83dd-20aaf092013f  497.2G    47% /home/pranav/storage
+└─sda1                                    crypto_LUKS 2             d4f04490-a9af-4106-a1ee-add6509734e1                
+  └─sda                                                                                                                 
+nvme0n1p1                                 vfat        FAT32         021B-508F                             446.3M    12% /boot
+└─nvme0n1                                                                                                               
+[pranav@pranav-b550 ~]$ vim /etc/crypttab.initramfs
+[pranav@pranav-b550 ~]$ sudo vim /etc/crypttab.initramfs
+[sudo] password for pranav: 
+Sorry, try again.
+[sudo] password for pranav: 
+[pranav@pranav-b550 ~]$ sudo mkinitcpio -P
+==> Building image from preset: /etc/mkinitcpio.d/linux-lts.preset: 'default'
+==> Using default configuration file: '/etc/mkinitcpio.conf'
+  -> -k /boot/vmlinuz-linux-lts -g /boot/initramfs-linux-lts.img --microcode /boot/amd-ucode.img
+==> Starting build: '6.1.39-1-lts'
+  -> Running build hook: [systemd]
+  -> Running build hook: [autodetect]
+  -> Running build hook: [modconf]
+  -> Running build hook: [keyboard]
+==> WARNING: Possibly missing firmware for module: 'xhci_pci'
+  -> Running build hook: [sd-vconsole]
+  -> Running build hook: [block]
+  -> Running build hook: [sd-encrypt]
+  -> Running build hook: [filesystems]
+  -> Running build hook: [fsck]
+==> WARNING: Possibly missing '/bin/sh' for script: /usr/bin/fsck.btrfs
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image: '/boot/initramfs-linux-lts.img'
+==> Image generation successful
+==> Building image from preset: /etc/mkinitcpio.d/linux-lts.preset: 'fallback'
+==> Using default configuration file: '/etc/mkinitcpio.conf'
+  -> -k /boot/vmlinuz-linux-lts -g /boot/initramfs-linux-lts-fallback.img -S autodetect --microcode /boot/amd-ucode.img
+==> Starting build: '6.1.39-1-lts'
+  -> Running build hook: [systemd]
+  -> Running build hook: [modconf]
+  -> Running build hook: [keyboard]
+==> WARNING: Possibly missing firmware for module: 'xhci_pci'
+  -> Running build hook: [sd-vconsole]
+  -> Running build hook: [block]
+==> WARNING: Possibly missing firmware for module: 'aic94xx'
+==> WARNING: Possibly missing firmware for module: 'bfa'
+==> WARNING: Possibly missing firmware for module: 'qed'
+==> WARNING: Possibly missing firmware for module: 'qla1280'
+==> WARNING: Possibly missing firmware for module: 'qla2xxx'
+==> WARNING: Possibly missing firmware for module: 'wd719x'
+  -> Running build hook: [sd-encrypt]
+  -> Running build hook: [filesystems]
+  -> Running build hook: [fsck]
+==> WARNING: Possibly missing '/bin/sh' for script: /usr/bin/fsck.btrfs
+==> Generating module dependencies
+==> Creating zstd-compressed initcpio image: '/boot/initramfs-linux-lts-fallback.img'
+==> Image generation successful
+[pranav@pranav-b550 ~]$ 

@@ -1,0 +1,3 @@
+https://wiki.archlinux.org/title/Trusted_Platform_Module#systemd-cryptenroll
+https://uapi-group.org/specifications/specs/linux_tpm_pcr_registry/
+https://wiki.archlinux.org/title/Dm-crypt/System_configuration#Trusted_Platform_Module_and_FIDO2_keys
