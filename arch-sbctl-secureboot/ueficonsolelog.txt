@@ -37,70 +37,12 @@ Verifying file database and EFI images in /boot...
 linuxx64.efi.stub    linuxx64.elf.stub    systemd-bootx64.efi  
 [pranav@pranav-b550 ~]$ sudo sbctl sign -s -o /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi
 ✓ Signed /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed
-[pranav@pranav-b550 ~]$ sudo systemctl enable systemd-boot-update.service
-Created symlink /etc/systemd/system/sysinit.target.wants/systemd-boot-update.service → /usr/lib/systemd/system/systemd-boot-update.service.
-[pranav@pranav-b550 ~]$ sbctl verify 
-sbctl requires root to run: couldn't access /usr/share/secureboot/keys/db/db.pem: permission denied
 [pranav@pranav-b550 ~]$ sudo sbctl verify 
 Verifying file database and EFI images in /boot...
 ✓ /boot/EFI/BOOT/BOOTX64.EFI is signed
 ✓ /boot/EFI/systemd/systemd-bootx64.efi is signed
 ✓ /boot/vmlinuz-linux-lts is signed
 ✓ /usr/lib/systemd/boot/efi/systemd-bootx64.efi.signed is signed
-[pranav@pranav-b550 ~]$ sudo mkinitcpio -P
-==> Building image from preset: /etc/mkinitcpio.d/linux-lts.preset: 'default'
-==> Using default configuration file: '/etc/mkinitcpio.conf'
-  -> -k /boot/vmlinuz-linux-lts -g /boot/initramfs-linux-lts.img --microcode /boot/amd-ucode.img
-==> Starting build: '6.1.39-1-lts'
-  -> Running build hook: [systemd]
-  -> Running build hook: [autodetect]
-  -> Running build hook: [modconf]
-  -> Running build hook: [keyboard]
-==> WARNING: Possibly missing firmware for module: 'xhci_pci'
-  -> Running build hook: [sd-vconsole]
-  -> Running build hook: [block]
-  -> Running build hook: [sd-encrypt]
-  -> Running build hook: [filesystems]
-  -> Running build hook: [fsck]
-==> WARNING: Possibly missing '/bin/sh' for script: /usr/bin/fsck.btrfs
-==> Generating module dependencies
-==> Creating zstd-compressed initcpio image: '/boot/initramfs-linux-lts.img'
-==> Image generation successful
-==> Building image from preset: /etc/mkinitcpio.d/linux-lts.preset: 'fallback'
-==> Using default configuration file: '/etc/mkinitcpio.conf'
-  -> -k /boot/vmlinuz-linux-lts -g /boot/initramfs-linux-lts-fallback.img -S autodetect --microcode /boot/amd-ucode.img
-==> Starting build: '6.1.39-1-lts'
-  -> Running build hook: [systemd]
-  -> Running build hook: [modconf]
-  -> Running build hook: [keyboard]
-==> WARNING: Possibly missing firmware for module: 'xhci_pci'
-  -> Running build hook: [sd-vconsole]
-  -> Running build hook: [block]
-==> WARNING: Possibly missing firmware for module: 'aic94xx'
-==> WARNING: Possibly missing firmware for module: 'bfa'
-==> WARNING: Possibly missing firmware for module: 'qed'
-==> WARNING: Possibly missing firmware for module: 'qla1280'
-==> WARNING: Possibly missing firmware for module: 'qla2xxx'
-==> WARNING: Possibly missing firmware for module: 'wd719x'
-  -> Running build hook: [sd-encrypt]
-  -> Running build hook: [filesystems]
-  -> Running build hook: [fsck]
-==> WARNING: Possibly missing '/bin/sh' for script: /usr/bin/fsck.btrfs
-==> Generating module dependencies
-==> Creating zstd-compressed initcpio image: '/boot/initramfs-linux-lts-fallback.img'
-==> Image generation successful
-[pranav@pranav-b550 ~]$ systemctl status systemd-boot-update
-○ systemd-boot-update.service - Automatic Boot Loader Update
-     Loaded: loaded (/usr/lib/systemd/system/systemd-boot-update.service; enabled; preset: enabled)
-     Active: inactive (dead)
-       Docs: man:bootctl(1)
-[pranav@pranav-b550 ~]$ sudo systemctl disable systemd-boot-update.service
-Removed "/etc/systemd/system/sysinit.target.wants/systemd-boot-update.service".
-[pranav@pranav-b550 ~]$ systemctl status systemd-boot-update
-○ systemd-boot-update.service - Automatic Boot Loader Update
-     Loaded: loaded (/usr/lib/systemd/system/systemd-boot-update.service; disabled; preset: enabled)
-     Active: inactive (dead)
-       Docs: man:bootctl(1)
 [pranav@pranav-b550 ~]$ sudo sbctl sign -s -o /usr/lib/fwupd
 fwupd/       fwupd-1.9.3/ 
 [pranav@pranav-b550 ~]$ sudo sbctl sign -s -o /usr/lib/fwupd/
